@@ -2,8 +2,9 @@ import os
 import tools
 import matplotlib.pyplot as plt
 import Camera
+from PIL import Image
 
-DataDirectory="Dataset"
+DataDirectory="../Dataset"
 
 labels=["seeni","NOTSeeni"]
 
@@ -31,8 +32,9 @@ def getPathName(label):
 
 def saveImage(ImageData,label):
     file_path=getPathName(label)
-    plt.imshow(ImageData)
-    plt.savefig(fname=file_path)
+    im=Image.fromarray(ImageData)
+    im.save(file_path)
+    return
 
 def LabelIt():
     print("Enter the class 1 for {} and  0 for {}".format(labels[0],labels[1]))
