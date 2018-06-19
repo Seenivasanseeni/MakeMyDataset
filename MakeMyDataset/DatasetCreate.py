@@ -43,11 +43,18 @@ def LabelIt():
         return "seeni"
     return "NOTSeeni"
 
-def Test():
-    cam=Camera.Camera()
+
+def makeData(cam):
     image=cam.captureImage()
     plt.imshow(image)
     plt.show()
     label=LabelIt()
     saveImage(image,label)
     return
+
+def capture():
+    cam=Camera.Camera()
+    makeData(cam)
+    return
+
+capture()
